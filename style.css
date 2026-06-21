@@ -238,6 +238,76 @@ nav a:hover { color: var(--green-500); }
 /* ============================================================
    HERO
    ============================================================ */
+
+
+
+.hero-img-main { padding: 0; }
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+}
+.carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+.carousel-slide {
+  min-width: 100%;
+  height: 100%;
+}
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(6px);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.2s;
+}
+.carousel-btn:hover { background: rgba(255,255,255,0.45); }
+.carousel-btn-prev { left: 10px; }
+.carousel-btn-next { right: 10px; }
+.carousel-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.carousel-dot.active { background: #fff; }
+
+
+
 #hero {
   min-height: 100vh;
   background: linear-gradient(135deg, #1a5c2e 0%, #2d8a4e 40%, #48bb6a 80%, #88d49c 100%);
@@ -689,6 +759,7 @@ nav a:hover { color: var(--green-500); }
   flex: 1;
   color: var(--gray-800);
 }
+
 .filter-btn {
   display: flex;
   align-items: center;
@@ -708,6 +779,8 @@ nav a:hover { color: var(--green-500); }
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 24px;
 }
+
+/* Card vira coluna flex */
 .product-card {
   background: var(--white);
   border-radius: var(--radius-lg);
@@ -717,21 +790,36 @@ nav a:hover { color: var(--green-500); }
   position: relative;
   cursor: pointer;
   border: 2px solid transparent;
+  display: flex;              /* ✅ adicionado */
+  flex-direction: column;     /* ✅ adicionado */
+  /* ❌ remova o height: 400px fixo */
 }
-.product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--green-100);
-}
+
+/* Imagem com altura fixa para aparecer inteira */
 .product-img {
-  height: 180px;
-  background: linear-gradient(135deg, var(--green-100), #a8e6b8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 4rem;
+  width: 100%;
+  height: 150px;              /* ✅ adicionado */
+  overflow: hidden;
+  flex-shrink: 0;             /* ✅ adicionado */
   position: relative;
 }
+
+.product-img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Texto mais espaçado da imagem */
+.product-info {
+  padding: 20px 16px 16px;    /* ✅ aumenta o padding-top */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
 .product-badges {
   position: absolute;
   top: 12px; left: 12px;
@@ -739,7 +827,7 @@ nav a:hover { color: var(--green-500); }
   flex-direction: column;
   gap: 6px;
 }
-.product-info { padding: 20px; }
+
 .product-name { font-size: 1rem; font-weight: 800; margin-bottom: 6px; }
 .product-desc { font-size: .83rem; color: var(--gray-600); margin-bottom: 16px; line-height: 1.5; }
 .product-footer {
@@ -1086,6 +1174,50 @@ nav a:hover { color: var(--green-500); }
 }
 
 /* CARRINHO DRAWER */
+
+.customer-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 14px 0 4px;
+}
+
+.customer-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.customer-field label {
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--gray-600);
+}
+
+.customer-field input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  font-size: .9rem;
+  color: var(--gray-800);
+  background: #fff;
+  outline: none;
+  transition: border-color var(--transition);
+  box-sizing: border-box;
+}
+
+.customer-field input:focus {
+  border-color: var(--green-500);
+}
+
+.customer-field input::placeholder {
+  color: var(--gray-400);
+}
+
+
+
+
 .cart-empty {
   text-align: center;
   padding: 60px 20px;
@@ -1314,4 +1446,74 @@ nav a:hover { color: var(--green-500); }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+
+
+
+
+
+
+.partner-card {
+  background: rgba(255,255,255,.06);
+  border: 0.5px solid rgba(255,255,255,.12);
+  border-radius: 12px;
+  width: 160px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 16px;
+  transition: background .2s, border-color .2s;
+}
+.partner-card:hover {
+  background: rgba(255,255,255,.13);
+  border-color: rgba(255,255,255,.28);
+}
+.partner-card img {
+  width: 120px;
+  height: 50px;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
+/* ── Seção ── */
+.partners-section {
+  padding: 48px 0;
+  overflow: hidden;          /* esconde o que sai da tela */
+}
+
+.partners-title {
+  text-align: center;
+  margin-bottom: 28px;
+  font-size: 1rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: .6;
+}
+
+/* ── Trilho ── */
+.carousel-track-wrap {
+  overflow: hidden;          /* ESSENCIAL — corta o overflow */
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;        /* deixa todos os cards em linha */
+
+  /* ── Animação ── */
+  animation: scroll-partners 30s linear infinite;
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;   /* pausa ao passar o mouse */
+}
+
+@keyframes scroll-partners {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }   /* -50% funciona pq duplicamos os logos no JS */
 }
