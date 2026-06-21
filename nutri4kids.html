@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nutri4Kids — Alimentação saudável para seus filhos</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
+<!-- AJUSTE RÁPIDO DE CSS PARA AS NOVAS IMAGENS -->
+<style>
+  /* Garante que a imagem no card do produto fique centralizada e preencha o espaço corretamente */
+  .product-img img {
+    max-width: 100%;
+    max-height: 120px; /* Ajuste essa altura conforme necessário para o seu layout */
+    object-fit: contain; /* Garante que a imagem não seja cortada ou distorcida */
+    display: block;
+  }
+  
+  /* Ajuste para imagem no detalhe nutricional */
+  .nutri-header img {
+    max-width: 100px;
+    height: auto;
+    margin-bottom: 15px;
+  }
+
+  /* Ajuste para imagem no carrinho e semana */
+  .cart-item-img img, .slot-icon img, .slot-item-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+</style>
+
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header id="header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <div class="logo-icon">🥗</div>
+        Nutri<span>4</span>Kids
+      </a>
+      <nav>
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#cardapio">Cardápio</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <button class="cart-btn" onclick="openDrawer('cart')" aria-label="Abrir carrinho">
+          🛒
+          <span class="cart-count" id="cart-count">0</span>
+        </button>
+        <div class="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section id="inicio" style="position:relative;">
+  <div id="hero">
+    <div class="hero-blobs">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+    </div>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-pill">🌟 <span>+500 famílias atendidas</span> em Uberlândia-MG</div>
+          <h1 class="hero-title">
+            Alimentação <em>saudável</em> para seus filhos, sem complicar sua rotina.
+          </h1>
+          <p class="hero-sub">
+            Preparamos lanches e refeições nutritivas para crianças, ajudando pais ocupados a oferecerem o melhor para seus filhos — com carinho e praticidade.
+          </p>
+          <div class="hero-btns">
+            <button class="btn btn-secondary" onclick="document.getElementById('cardapio').scrollIntoView({behavior:'smooth'})">
+              🍱 Ver Cardápio
+            </button>
+            <a href="https://wa.me/5534997232984" target="_blank" class="btn btn-ghost">
+              💬 Falar no WhatsApp
+            </a>
+          </div>
+          <div class="hero-trust">
+            <div class="hero-avatars">
+              <div>👩</div><div>👨</div><div>👩</div><div>👨</div>
+            </div>
+            <div class="hero-trust-text">
+              <strong>+500 famílias satisfeitas</strong>
+              Atendimento humanizado pela nutricionista
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-img-main"><img src="img/bolinho.jpeg" alt="Imagem da Bolhacha Trackinas"></div>
+          <div class="hero-cards">
+            <div class="hero-card">
+              <div class="hero-card-icon">⏱️</div>
+              <div class="hero-card-val">3h+</div>
+              <div class="hero-card-lbl">economizadas/semana</div>
+            </div>
+            <div class="hero-card">
+              <div class="hero-card-icon">🏆</div>
+              <div class="hero-card-val">98%</div>
+              <div class="hero-card-lbl">satisfação</div>
+            </div>
+            <div class="hero-card">
+              <div class="hero-card-icon">🥦</div>
+              <div class="hero-card-val">100%</div>
+              <div class="hero-card-lbl">natural</div>
+            </div>
+            <div class="hero-card">
+              <div class="hero-card-icon">👩‍⚕️</div>
+              <div class="hero-card-val">UFU</div>
+              <div class="hero-card-lbl">Nutricionista formada</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DIFERENCIAIS
+     ============================================================ -->
+<section id="diferenciais">
+  <div class="container">
+    <div class="features-grid">
+      <div class="feature-card fade-in">
+        <div class="feature-icon">💚</div>
+        <div class="feature-title">Atendimento Humanizado</div>
+        <div class="feature-desc">Cuidamos de cada pedido com atenção e carinho real.</div>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon">👩‍⚕️</div>
+        <div class="feature-title">Nutricionista Especializada</div>
+        <div class="feature-desc">Formada na UFU, com experiência em nutrição infantil.</div>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon">🚀</div>
+        <div class="feature-title">Entrega Prática</div>
+        <div class="feature-desc">Lanche na porta da escola, sem complicação.</div>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon">🌿</div>
+        <div class="feature-title">Ingredientes Selecionados</div>
+        <div class="feature-desc">Só o que é fresco e de qualidade chega à sua família.</div>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon">🥦</div>
+        <div class="feature-title">Alimentação Saudável</div>
+        <div class="feature-desc">Refeições balanceadas para o crescimento das crianças.</div>
+      </div>
+      <div class="feature-card fade-in">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-title">Agilidade no Atendimento</div>
+        <div class="feature-desc">Resposta rápida pelo WhatsApp, sempre que precisar.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     NÚMEROS
+     ============================================================ -->
+<section id="numeros">
+  <div class="container">
+    <div class="numbers-grid">
+      <div class="num-card fade-in">
+        <div class="num-val"><span class="counter" data-target="500">0</span><span class="num-suffix">+</span></div>
+        <div class="num-label">Famílias Atendidas</div>
+      </div>
+      <div class="num-card fade-in">
+        <div class="num-val"><span class="counter" data-target="10000">0</span><span class="num-suffix">+</span></div>
+        <div class="num-label">Lanches Preparados</div>
+      </div>
+      <div class="num-card fade-in">
+        <div class="num-val"><span class="counter" data-target="98">0</span><span class="num-suffix">%</span></div>
+        <div class="num-label">Clientes Satisfeitos</div>
+      </div>
+      <div class="num-card fade-in">
+        <div class="num-val"><span class="counter" data-target="100">0</span><span class="num-suffix">%</span></div>
+        <div class="num-label">Atendimento Humanizado</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SOBRE / TIMELINE
+     ============================================================ -->
+<section id="sobre" class="section">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="founder-photo fade-in">
+        <div class="founder-photo-img"><img src="img/founder.jpeg" alt=""></div>
+        <div class="founder-tag">
+          <div class="founder-tag-icon">🎓</div>
+          <div>
+            <div class="founder-tag-text">Nutricionista</div>
+            <div class="founder-tag-sub">Graduada na UFU - 1ª Turma</div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-in">
+        <div class="section-label">A história por trás da Nutri4Kids</div>
+        <h2 class="section-title">Luciana, uma nutricionista que entende o seu dia a dia</h2>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-left">
+              <div class="tl-dot">🎓</div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-year">Formação</div>
+              <div class="tl-title">Graduação em Nutrição na UFU</div>
+              <div class="tl-desc">Faz parte da primeira turma do curso de Nutrição da Universidade Federal de Uberlândia, construindo uma base científica sólida em alimentação saudável.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left">
+              <div class="tl-dot">🏙️</div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-year">Experiência</div>
+              <div class="tl-title">Anos atuando em São Paulo</div>
+              <div class="tl-desc">Acumulou vivência profissional em clínicas e empresas de nutrição na capital paulista, ampliando a visão sobre saúde alimentar e boas práticas nutricionais.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left">
+              <div class="tl-dot">👩‍👧</div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-year">Descoberta</div>
+              <div class="tl-title">A chegada da maternidade muda tudo</div>
+              <div class="tl-desc">Ao se tornar mãe, vivenciou na pele o desafio de manter uma alimentação saudável para os filhos em meio à correria do dia a dia — mesmo sendo nutricionista.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left">
+              <div class="tl-dot">💡</div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-year">Insight</div>
+              <div class="tl-title">Identificou o problema de milhares de famílias</div>
+              <div class="tl-desc">Percebeu que não era um problema isolado: pais e mães em todo lugar desejam o melhor para os filhos, mas a falta de tempo dificulta a preparação de refeições nutritivas.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-left">
+              <div class="tl-dot">🥗</div>
+              <div class="tl-line"></div>
+            </div>
+            <div class="tl-content">
+              <div class="tl-year">Hoje</div>
+              <div class="tl-title">Nasce a Nutri4Kids</div>
+              <div class="tl-desc">Mais do que uma empresa de alimentos, a Nutri4Kids é uma solução real para famílias que querem oferecer o melhor — com praticidade, confiança e carinho.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ANTES & DEPOIS
+     ============================================================ -->
+<section id="antes-depois" class="section">
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="section-label">Transformação real</div>
+      <h2 class="section-title">Como a Nutri4Kids muda sua rotina</h2>
+    </div>
+    <div class="ad-grid">
+      <div class="ad-card ad-before fade-in">
+        <div class="ad-header">
+          <div class="ad-emoji">😓</div>
+          <div class="ad-title">Antes</div>
+        </div>
+        <ul class="ad-list">
+          <li><span class="ad-icon">⏰</span> Falta de tempo para preparar</li>
+          <li><span class="ad-icon">😤</span> Correria e estresse diários</li>
+          <li><span class="ad-icon">🍟</span> Opções industrializadas e processadas</li>
+          <li><span class="ad-icon">😟</span> Culpa por não conseguir equilibrar</li>
+          <li><span class="ad-icon">💸</span> Desperdício de ingredientes</li>
+        </ul>
+      </div>
+      <div class="ad-card ad-after fade-in">
+        <div class="ad-header">
+          <div class="ad-emoji">😊</div>
+          <div class="ad-title">Depois</div>
+        </div>
+        <ul class="ad-list">
+          <li><span class="ad-icon">✅</span> Mais praticidade e tranquilidade</li>
+          <li><span class="ad-icon">🥦</span> Alimentação equilibrada garantida</li>
+          <li><span class="ad-icon">❤️</span> Mais tempo de qualidade em família</li>
+          <li><span class="ad-icon">😄</span> Crianças felizes e bem alimentadas</li>
+          <li><span class="ad-icon">💚</span> Consciência de pais responsáveis</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SIMULADOR DE TEMPO
+     ============================================================ -->
+<section id="simulador" class="section">
+  <div class="container">
+    <div style="text-align:center;">
+      <div class="section-label">Calculadora de praticidade</div>
+      <h2 class="section-title">Quanto tempo você pode economizar?</h2>
+      <p class="section-sub" style="margin:0 auto;">Descubra o quanto de tempo precioso você ganha toda semana ao deixar os lanches com a gente.</p>
+    </div>
+    <div class="simulador-box fade-in">
+      <p style="font-size:.95rem;font-weight:700;color:var(--gray-700);margin-bottom:4px;">Quantos filhos você tem?</p>
+      <p style="font-size:.85rem;color:var(--gray-400);margin-bottom:20px;">Selecione para calcular sua estimativa de economia</p>
+      <div class="sim-options">
+        <div class="sim-option" onclick="calcTime(1)" data-v="1">
+          <div class="icon">👧</div>
+          <div class="label">1 filho</div>
+        </div>
+        <div class="sim-option" onclick="calcTime(2)" data-v="2">
+          <div class="icon">👧👦</div>
+          <div class="label">2 filhos</div>
+        </div>
+        <div class="sim-option" onclick="calcTime(3)" data-v="3">
+          <div class="icon">👧👦👶</div>
+          <div class="label">3 ou mais</div>
+        </div>
+      </div>
+      <div class="sim-result" id="sim-result">
+        <div style="font-size:.9rem;opacity:.85;">Você pode economizar aproximadamente</div>
+        <div class="sim-result-time" id="sim-time">0h 0min</div>
+        <div class="sim-result-text">por semana na preparação de lanches e refeições para seus filhos</div>
+        <div class="sim-extras" id="sim-extras"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CARDÁPIO
+     ============================================================ -->
+<section id="cardapio" class="section">
+  <div class="container">
+    <div class="section-label">O que oferecemos</div>
+    <h2 class="section-title">Nosso Cardápio</h2>
+    <p class="section-sub">Todos os produtos são preparados com ingredientes selecionados e carinho. Clique em qualquer item para ver informações nutricionais detalhadas.</p>
+
+    <div class="cardapio-controls" style="margin-top:32px;">
+      <div class="search-box">
+        <span>🔍</span>
+        <input type="text" id="search-input" placeholder="Buscar produto..." oninput="filterProducts()" aria-label="Buscar produto">
+      </div>
+      <div style="display:flex;gap:10px;">
+        <button class="filter-btn" onclick="openDrawer('filters')">
+          🔧 Filtros <span id="filter-count-badge" style="display:none;background:var(--green-50);color:#fff;border-radius:50%;width:18px;height:18px;font-size:.65rem;font-weight:800;display:inline-flex;align-items:center;justify-content:center;margin-left:4px;" id="fc-badge">0</span>
+        </button>
+        <button class="filter-btn" onclick="openDrawer('weekly')" style="background:var(--green-50);border-color:var(--green-300,#86efac);color:var(--green-700);">
+          📅 Montar Semana
+        </button>
+      </div>
+    </div>
+
+    <div class="products-grid" id="products-grid">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MONTADOR SEMANAL
+     ============================================================ -->
+<section id="semana" class="section">
+  <div class="container">
+    <div class="section-label">Funcionalidade exclusiva</div>
+    <h2 class="section-title">Monte a Semana do Seu Filho</h2>
+    <p class="section-sub">Planeje com antecedência o cardápio de cada dia. Seu filho come bem toda semana — você não precisa se preocupar.</p>
+
+    <div class="week-grid" id="week-grid">
+      <!-- Populated by JS -->
+    </div>
+
+    <div class="week-cta">
+      <button class="btn btn-outline" onclick="clearWeekPlan()">🗑️ Limpar</button>
+      <button class="btn btn-primary" onclick="sendWeekToWhatsApp()">📲 Pedir a Semana pelo WhatsApp</button>
+    </div>
+
+    <div class="week-summary" id="week-summary">
+      <h3 style="font-size:1rem;font-weight:800;margin-bottom:16px;">📋 Resumo da semana</h3>
+      <div id="week-summary-content"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DEPOIMENTOS
+     ============================================================ -->
+<section id="depoimentos" class="section">
+  <div class="container">
+    <div class="section-label">O que os pais dizem</div>
+    <h2 class="section-title">Famílias que já confiam na Nutri4Kids</h2>
+
+    <div class="testimonials-wrapper">
+      <div class="testimonials-track" id="testimonials-track">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <div class="carousel-controls">
+      <button class="carousel-btn" onclick="prevSlide()">←</button>
+      <div class="carousel-dots" id="carousel-dots"></div>
+      <button class="carousel-btn" onclick="nextSlide()">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA FINAL
+     ============================================================ -->
+<section id="cta-final">
+  <div class="container">
+    <div class="cta-final-content fade-in">
+      <div class="cta-final-emoji">🥰</div>
+      <h2 class="cta-final-title">Facilite sua rotina e cuide da alimentação do seu filho.</h2>
+      <p class="cta-final-sub">Peça agora pelo WhatsApp e receba lanches nutritivos preparados com carinho.</p>
+      <div class="cta-btns">
+        <a href="https://wa.me/5534997232984" target="_blank" class="btn btn-wa">
+          💬 Pedir pelo WhatsApp
+        </a>
+        <button class="btn btn-ghost" onclick="document.getElementById('cardapio').scrollIntoView({behavior:'smooth'})">
+          🍱 Ver Cardápio
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="color:#fff;">
+          <div class="logo-icon">🥗</div>
+          Nutri<span style="color:var(--orange-500);">4</span>Kids
+        </div>
+        <p>Alimentação saudável e praticidade para a rotina das famílias de Uberlândia. Preparamos com carinho, você aproveita o tempo com seus filhos.</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/nutri4kids" target="_blank" title="Instagram">📸</a>
+          <a href="https://wa.me/5534997232984" target="_blank" title="WhatsApp">💬</a>
+        </div>
+      </div>
+      <div class="footer-col" id="contato">
+        <h4>Contato</h4>
+        <ul>
+          <li class="contact-item"><span>📞</span> (34) 99723-2984</li>
+          <li class="contact-item"><span>💬</span> <a href="https://wa.me/5534997232984" target="_blank">(34) 99723-2984</a></li>
+          <li class="contact-item"><span>📧</span> <a href="mailto:contato@nutri4kids.com.br">contato@nutri4kids.com.br</a></li>
+          <li class="contact-item"><span>📸</span> <a href="https://instagram.com/nutri4kids" target="_blank">@nutri4kids</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Escolas Parceiras</h4>
+        <ul>
+          <li>🏫 Nacional</li>
+          <li>🏫 Teachers</li>
+          <li>🏫 Navegantes</li>
+          <li>🏫 Maple Bear</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Localização</h4>
+        <p style="font-size:.88rem;margin-bottom:12px;">📍 Uberlândia — MG</p>
+        <div class="footer-map">📍 Uberlândia — MG</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Nutri4Kids. Todos os direitos reservados. Feito com 💚 em Uberlândia-MG.
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     DRAWERS
+     ============================================================ -->
+<div class="drawer-overlay" id="overlay" onclick="closeAllDrawers()"></div>
+
+<!-- CART DRAWER -->
+<div class="drawer drawer-right" id="drawer-cart">
+  <div class="drawer-header">
+    <div class="drawer-title">🛒 Meu Carrinho</div>
+    <button class="drawer-close" onclick="closeAllDrawers()">✕</button>
+  </div>
+  <div class="drawer-body" id="cart-body"></div>
+  <div class="drawer-footer" id="cart-footer" style="display:none;">
+    <div class="cart-total-row"><span>Subtotal</span><span id="cart-subtotal">R$ 0,00</span></div>
+    <div class="cart-total-row"><span>Taxa de entrega</span><span>A combinar</span></div>
+    <div class="cart-total-row big"><span>Total</span><span id="cart-total">R$ 0,00</span></div>
+    <button class="btn btn-wa btn-wa-full" onclick="checkoutWhatsApp()">💬 Finalizar pelo WhatsApp</button>
+  </div>
+</div>
+
+<!-- FILTERS DRAWER -->
+<div class="drawer drawer-left" id="drawer-filters">
+  <div class="drawer-header">
+    <div class="drawer-title">🔧 Filtros</div>
+    <button class="drawer-close" onclick="closeAllDrawers()">✕</button>
+  </div>
+  <div class="drawer-body">
+    <div class="filter-group">
+      <div class="filter-group-title">Restrições Alimentares</div>
+      <span class="filter-tag" data-filter="semAcucar" onclick="toggleFilter(this)">🚫 Sem açúcar</span>
+      <span class="filter-tag" data-filter="semLactose" onclick="toggleFilter(this)">🥛 Sem lactose</span>
+      <span class="filter-tag" data-filter="semGluten" onclick="toggleFilter(this)">🌾 Sem glúten</span>
+      <span class="filter-tag" data-filter="tracosGluten" onclick="toggleFilter(this)">⚠️ Com traços de glúten</span>
+      <span class="filter-tag" data-filter="vegetariano" onclick="toggleFilter(this)">🌿 Vegetariano</span>
+    </div>
+    <div class="filter-group">
+      <div class="filter-group-title">Categorias</div>
+      <span class="filter-tag" data-filter="maisVendidos" onclick="toggleFilter(this)">🔥 Mais vendidos</span>
+      <span class="filter-tag" data-filter="lanches" onclick="toggleFilter(this)">🥪 Lanches</span>
+      <span class="filter-tag" data-filter="frutas" onclick="toggleFilter(this)">🍎 Frutas</span>
+      <span class="filter-tag" data-filter="sucos" onclick="toggleFilter(this)">🥤 Sucos</span>
+    </div>
+    <div style="margin-top:24px;display:flex;gap:12px;">
+      <button class="btn btn-outline" style="flex:1;justify-content:center;" onclick="clearFilters()">Limpar tudo</button>
+      <button class="btn btn-primary" style="flex:1;justify-content:center;" onclick="closeAllDrawers()">Aplicar</button>
+    </div>
+  </div>
+</div>
+
+<!-- NUTRIÇÃO DRAWER -->
+<div class="drawer drawer-right" id="drawer-nutri">
+  <div class="drawer-header">
+    <div class="drawer-title">🥗 Perfil Nutricional</div>
+    <button class="drawer-close" onclick="closeAllDrawers()">✕</button>
+  </div>
+  <div class="drawer-body" id="nutri-body"></div>
+</div>
+
+<!-- SEMANA DRAWER -->
+<div class="drawer drawer-right" id="drawer-weekly">
+  <div class="drawer-header">
+    <div class="drawer-title" id="week-drawer-title">📅 Escolha um item</div>
+    <button class="drawer-close" onclick="closeAllDrawers()">✕</button>
+  </div>
+  <div class="drawer-body" id="weekly-body"></div>
+</div>
+
+<!-- TOAST DE RECOMENDAÇÃO -->
+<div class="recommendation-toast" id="rec-toast">
+  <div class="rec-icon" id="rec-icon">💡</div>
+  <div class="rec-text">
+    <h4 id="rec-title">Sugestão</h4>
+    <p id="rec-msg">Combina muito bem com...</p>
+  </div>
+  <button class="rec-close" onclick="document.getElementById('rec-toast').classList.remove('show')">✕</button>
+</div>
+
+<!-- MODO DEMO -->
+<button class="demo-btn" onclick="runDemo()">🎬 Modo Demo</button>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav">
+  <div class="mobile-nav-inner">
+    <div class="mobile-nav-item" onclick="scrollTo('inicio')"><div class="icon">🏠</div>Início</div>
+    <div class="mobile-nav-item" onclick="scrollTo('sobre')"><div class="icon">👩‍⚕️</div>Sobre</div>
+    <div class="mobile-nav-item" onclick="scrollTo('cardapio')"><div class="icon">🍱</div>Cardápio</div>
+    <div class="mobile-nav-item" onclick="openDrawer('cart')"><div class="icon">🛒</div>Carrinho</div>
+    <div class="mobile-nav-item" onclick="scrollTo('contato')"><div class="icon">📞</div>Contato</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+/* ============================================================
+   DATA - ATUALIZADO: Trocado 'emoji' por 'image'
+   ============================================================ */
+// IMPORTANTE: Crie a pasta img/produtos/ e coloque as imagens lá, 
+// ou atualize os caminhos abaixo para onde suas imagens estão.
+const PRODUCTS = [
+  { id:1,  name:'Bolacha Trackinas Saudável', price:8.90,  category:'lanches', image:'img/bolacha.jpeg', desc:'Biscoito integral saboroso, sem açúcar refinado. Perfeito para o lanche da tarde.', badges:['Mais Pedido'], tags:['semAcucar','semLactose','maisVendidos','lanches'], nutri:{ cal:120, prot:3, carb:22, fibra:4, acucar:2, lactose:false, gluten:false, tracosGluten:false } },
+  { id:2,  name:'Pão com Carne Moída',       price:15.90, category:'lanches', image:'img/produtos/pao-carne.jpg', desc:'Pão artesanal recheado com carne moída temperada. Rico em proteínas para seu filho crescer.', badges:['Favorito das Crianças'], tags:['maisVendidos','lanches'], nutri:{ cal:280, prot:16, carb:30, fibra:2, acucar:3, lactose:false, gluten:true, tracosGluten:false } },
+  { id:3,  name:'Sanduíche Natural',          price:14.90, category:'lanches', image:'img/produtos/sanduiche.jpg', desc:'Pão integral com recheio fresco, leve e nutritivo. O queridinho dos pais e das crianças!', badges:['Mais Pedido'], tags:['maisVendidos','lanches'], nutri:{ cal:230, prot:12, carb:28, fibra:5, acucar:3, lactose:false, gluten:true, tracosGluten:false } },
+  { id:4,  name:'Empada de Frango',           price:12.90, category:'lanches', image:'img/produtos/empada.jpg', desc:'Empada caseira com frango desfiado e temperos naturais. Deliciosa e sem conservantes.', badges:[], tags:['lanches','tracosGluten'], nutri:{ cal:210, prot:10, carb:24, fibra:1, acucar:2, lactose:false, gluten:false, tracosGluten:true } },
+  { id:5,  name:'Brownie Saudável',           price:9.90,  category:'lanches', image:'img/produtos/brownie.jpg', desc:'Brownie de cacau com aveia e sem açúcar refinado. Crianças amam — pais aprovam!', badges:['Favorito das Crianças'], tags:['semAcucar','lanches'], nutri:{ cal:180, prot:5, carb:20, fibra:6, acucar:4, lactose:false, gluten:false, tracosGluten:true } },
+  { id:6,  name:'Salada de Frutas',           price:13.90, category:'lanches', image:'img/produtos/salada-frutas.jpg', desc:'Mistura colorida de frutas da estação, fresquinha e sem adição de açúcar.', badges:[], tags:['semAcucar','semLactose','semGluten','vegetariano','lanches'], nutri:{ cal:95, prot:1, carb:22, fibra:4, acucar:12, lactose:false, gluten:false, tracosGluten:false } },
+  { id:7,  name:'Banana',                     price:4.90,  category:'frutas',  image:'img/produtos/banana.jpg', desc:'Banana madura e doce, rica em potássio e energia natural para seu filho.', badges:[], tags:['semAcucar','semLactose','semGluten','vegetariano','frutas'], nutri:{ cal:89, prot:1, carb:23, fibra:3, acucar:12, lactose:false, gluten:false, tracosGluten:false } },
+  { id:8,  name:'Maçã',                       price:5.90,  category:'frutas',  image:'img/produtos/maca.jpg', desc:'Maçã crocante e suculenta. Fonte de fibras e vitaminas essenciais para as crianças.', badges:[], tags:['semAcucar','semLactose','semGluten','vegetariano','frutas'], nutri:{ cal:72, prot:0, carb:19, fibra:2, acucar:14, lactose:false, gluten:false, tracosGluten:false } },
+  { id:9,  name:'Manga',                      price:6.90,  category:'frutas',  image:'img/produtos/manga.jpg', desc:'Manga selecionada, cheia de sabor tropical e vitamina A.', badges:['Favorito das Crianças'], tags:['semAcucar','semLactose','semGluten','vegetariano','frutas'], nutri:{ cal:99, prot:1, carb:25, fibra:3, acucar:22, lactose:false, gluten:false, tracosGluten:false } },
+  { id:10, name:'Mexerica',                   price:4.90,  category:'frutas',  image:'img/produtos/mexerica.jpg', desc:'Mexerica fresca e fácil de descascar, rica em vitamina C para a imunidade.', badges:[], tags:['semAcucar','semLactose','semGluten','vegetariano','frutas'], nutri:{ cal:53, prot:1, carb:13, fibra:2, acucar:10, lactose:false, gluten:false, tracosGluten:false } },
+  { id:11, name:'Suco de Uva',               price:8.90,  category:'sucos',   image:'img/produtos/suco-uva.jpg', desc:'Suco integral de uva, sem adição de açúcar. Rico em antioxidantes naturais.', badges:[], tags:['semAcucar','semLactose','semGluten','vegetariano','sucos'], nutri:{ cal:70, prot:1, carb:17, fibra:0, acucar:16, lactose:false, gluten:false, tracosGluten:false } },
+  { id:12, name:'Suco de Morango',           price:9.90,  category:'sucos',   image:'img/produtos/suco-morango.jpg', desc:'Suco natural de morango, fresquinho e sem conservantes. Sucesso garantido!', badges:['Mais Pedido'], tags:['semAcucar','semLactose','semGluten','vegetariano','maisVendidos','sucos'], nutri:{ cal:49, prot:1, carb:12, fibra:1, acucar:9, lactose:false, gluten:false, tracosGluten:false } },
+  { id:13, name:'Suco de Laranja',           price:7.90,  category:'sucos',   image:'img/produtos/suco-laranja.jpg', desc:'Laranja espremida na hora, fonte natural de vitamina C e energia para o dia.', badges:[], tags:['semAcucar','semLactose','semGluten','vegetariano','sucos'], nutri:{ cal:58, prot:1, carb:13, fibra:0, acucar:9, lactose:false, gluten:false, tracosGluten:false } },
+  { id:14, name:'Suco de Maracujá',          price:8.90,  category:'sucos',   image:'img/produtos/suco-maracuja.jpg', desc:'Maracujá natural, levemente adocicado. Calmante e delicioso para as crianças.', badges:[], tags:['semAcucar','semLactose','semGluten','vegetariano','sucos'], nutri:{ cal:60, prot:1, carb:14, fibra:1, acucar:11, lactose:false, gluten:false, tracosGluten:false } },
+];
+
+const TESTIMONIALS = [
+  { name:'Camila Rodrigues', role:'Mãe do Bernardo, 6 anos', text:'Meu filho adorou os lanches e eu ganhei muito mais praticidade na rotina. Não imagino mais a semana sem a Nutri4Kids!', emoji:'👩' },
+  { name:'Rafael Souza',     role:'Pai da Valentina, 8 anos', text:'A qualidade dos produtos é incrível. A gente sente que foi feito com carinho. Minha filha pede sempre o Brownie Saudável.', emoji:'👨' },
+  { name:'Fernanda Lima',    role:'Mãe do Enzo, 5 anos e Ana, 9 anos', text:'Tenho dois filhos com preferências diferentes e a Nutri4Kids atende os dois muito bem. O atendimento é nota 10!', emoji:'👩' },
+  { name:'Gustavo Martins',  role:'Pai do Pedro, 7 anos', text:'Minha preocupação com alimentação do meu filho diminuiu muito. Sei que ele está comendo bem mesmo nos dias mais corridos.', emoji:'👨' },
+  { name:'Juliana Costa',    role:'Mãe da Sofia, 4 anos', text:'A Nutri4Kids foi a solução que eu precisava. Rápido, saudável e minha filha ama. O Suco de Morango é o favorito dela!', emoji:'👩' },
+  { name:'Marcelo Alves',    role:'Pai do Lucas, 10 anos', text:'Produto de altíssima qualidade. Percebi que meu filho está mais disposto na escola desde que começamos a pedir. Recomendo!', emoji:'👨' },
+];
+
+const DAYS = ['Segunda','Terça','Quarta','Quinta','Sexta'];
+
+/* ============================================================
+   STATE
+   ============================================================ */
+let cart = JSON.parse(localStorage.getItem('n4k_cart') || '[]');
+let activeFilters = new Set();
+let searchTerm = '';
+let slideIndex = 0;
+let weekPlan = JSON.parse(localStorage.getItem('n4k_week') || JSON.stringify(DAYS.map(d => ({ day:d, fruta:null, lanche:null, bebida:null }))));
+let weekPickerState = null; // {dayIndex, slotType}
+
+/* ============================================================
+   HEADER SCROLL
+   ============================================================ */
+window.addEventListener('scroll', () => {
+  const h = document.getElementById('header');
+  if(h) h.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+/* ============================================================
+   SCROLL ANIMATION (fade-in)
+   ============================================================ */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+/* ============================================================
+   COUNTER ANIMATION
+   ============================================================ */
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const el = e.target;
+      const target = parseInt(el.dataset.target);
+      const duration = 1800;
+      const start = performance.now();
+      const tick = now => {
+        const progress = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(ease * target).toLocaleString('pt-BR');
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+      counterObs.unobserve(el);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.counter').forEach(el => counterObs.observe(el));
+
+/* ============================================================
+   TIMELINE OBSERVER
+   ============================================================ */
+const tlObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); tlObs.unobserve(e.target); } });
+}, { threshold: 0.3 });
+document.querySelectorAll('.tl-item').forEach((el, i) => {
+  setTimeout(() => tlObs.observe(el), i * 100);
+});
+
+/* ============================================================
+   PRODUCTS - ATUALIZADO: Usando tag img
+   ============================================================ */
+function renderProducts() {
+  const grid = document.getElementById('products-grid');
+  if(!grid) return;
+  
+  let filtered = PRODUCTS.filter(p => {
+    const matchSearch = !searchTerm || p.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchFilters = activeFilters.size === 0 || [...activeFilters].every(f => p.tags.includes(f));
+    return matchSearch && matchFilters;
+  });
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `<div class="no-results"><div class="icon">🔍</div><p>Nenhum produto encontrado.<br><small>Tente outros filtros ou termos.</small></p></div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(p => `
+    <div class="product-card fade-in" onclick="openNutri(${p.id})">
+      <div class="product-img">
+        <div class="product-badges">${p.badges.map(b => `<span class="badge ${b === 'Mais Pedido' ? 'badge-hot' : 'badge-fav'}">${b === 'Mais Pedido' ? '🔥' : '⭐'} ${b}</span>`).join('')}</div>
+        <!-- Trocado emoji por imagem -->
+        <img src="${p.image}" alt="${p.name}">
+      </div>
+      <div class="product-info">
+        <div class="product-name">${p.name}</div>
+        <div class="product-desc">${p.desc}</div>
+        <div class="product-footer">
+          <div class="product-price">R$ ${p.price.toFixed(2).replace('.',',')}</div>
+          <button class="add-btn" onclick="event.stopPropagation();addToCart(${p.id})" title="Adicionar ao carrinho">+</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+
+  // re-observe new fade-in elements
+  grid.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+}
+
+function filterProducts() {
+  const input = document.getElementById('search-input');
+  if(input) searchTerm = input.value;
+  renderProducts();
+}
+
+function toggleFilter(el) {
+  const f = el.dataset.filter;
+  if (activeFilters.has(f)) { activeFilters.delete(f); el.classList.remove('active'); }
+  else                        { activeFilters.add(f);    el.classList.add('active'); }
+  renderProducts();
+  updateFilterBadge();
+}
+
+function updateFilterBadge() {
+  const badge = document.getElementById('fc-badge');
+  if (badge) {
+    badge.textContent = activeFilters.size;
+    badge.style.display = activeFilters.size > 0 ? 'inline-flex' : 'none';
+  }
+}
+
+function clearFilters() {
+  activeFilters.clear();
+  document.querySelectorAll('.filter-tag').forEach(el => el.classList.remove('active'));
+  renderProducts();
+  updateFilterBadge();
+}
+
+/* ============================================================
+   CART - ATUALIZADO: Usando tag img
+   ============================================================ */
+function addToCart(id) {
+  const p = PRODUCTS.find(x => x.id === id);
+  const existing = cart.find(x => x.id === id);
+  if (existing) existing.qty++;
+  else cart.push({ id, qty: 1 });
+  saveCart();
+  updateCartUI();
+  animateCartBtn();
+  showRecommendation(p);
+}
+
+function saveCart() { localStorage.setItem('n4k_cart', JSON.stringify(cart)); }
+
+function updateCartUI() {
+  const count = cart.reduce((s, x) => s + x.qty, 0);
+  const countEl = document.getElementById('cart-count');
+  if(countEl) {
+      countEl.textContent = count;
+      countEl.classList.toggle('show', count > 0);
+  }
+  renderCart();
+}
+
+function renderCart() {
+  const body   = document.getElementById('cart-body');
+  const footer = document.getElementById('cart-footer');
+  if(!body || !footer) return;
+
+  if (cart.length === 0) {
+    body.innerHTML = `<div class="cart-empty"><div class="icon">🛒</div><p style="font-weight:700;font-size:1rem;">Seu carrinho está vazio</p><p style="font-size:.85rem;margin-top:8px;color:var(--gray-400);">Adicione itens do cardápio para começar seu pedido.</p></div>`;
+    footer.style.display = 'none';
+    return;
+  }
+
+  let total = 0;
+  body.innerHTML = cart.map(item => {
+    const p = PRODUCTS.find(x => x.id === item.id);
+    const sub = p.price * item.qty;
+    total += sub;
+    return `
+      <div class="cart-item">
+        <!-- Trocado emoji por imagem -->
+        <div class="cart-item-img"><img src="${p.image}" alt="${p.name}"></div>
+        <div class="cart-item-info">
+          <div class="cart-item-name">${p.name}</div>
+          <div class="cart-item-price">R$ ${p.price.toFixed(2).replace('.',',')} un</div>
+          <div class="cart-item-controls">
+            <button class="qty-btn" onclick="changeQty(${item.id},-1)">−</button>
+            <span class="qty-num">${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${item.id},1)">+</button>
+            <span class="remove-item" onclick="removeItem(${item.id})">🗑️ Remover</span>
+          </div>
+        </div>
+        <div style="font-size:.9rem;font-weight:800;color:var(--green-600);flex-shrink:0;padding-top:8px;">R$ ${sub.toFixed(2).replace('.',',')}</div>
+      </div>`;
+  }).join('');
+
+  const subtotalEl = document.getElementById('cart-subtotal');
+  const totalEl = document.getElementById('cart-total');
+  if(subtotalEl) subtotalEl.textContent = `R$ ${total.toFixed(2).replace('.',',')}`;
+  if(totalEl) totalEl.textContent    = `R$ ${total.toFixed(2).replace('.',',')}`;
+  footer.style.display = 'block';
+}
+
+function changeQty(id, delta) {
+  const item = cart.find(x => x.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) cart = cart.filter(x => x.id !== id);
+  saveCart();
+  updateCartUI();
+}
+
+function removeItem(id) {
+  cart = cart.filter(x => x.id !== id);
+  saveCart();
+  updateCartUI();
+}
+
+function animateCartBtn() {
+  const btn = document.querySelector('.cart-btn');
+  if(!btn) return;
+  btn.style.transform = 'scale(1.3)';
+  setTimeout(() => btn.style.transform = '', 300);
+}
+
+function checkoutWhatsApp() {
+  if (cart.length === 0) return;
+  let msg = 'Olá, gostaria de fazer o seguinte pedido:\n\n*ITENS:*\n\n';
+  let total = 0;
+  let totalItems = 0;
+  cart.forEach(item => {
+    const p = PRODUCTS.find(x => x.id === item.id);
+    const sub = p.price * item.qty;
+    total += sub;
+    totalItems += item.qty;
+    msg += `• ${item.qty}x ${p.name} - R$ ${sub.toFixed(2).replace('.',',')}\n`;
+  });
+  msg += `\n*TOTAL DE ITENS:* ${totalItems}`;
+  msg += `\n*VALOR TOTAL:* R$ ${total.toFixed(2).replace('.',',')}`;
+  window.open(`https://wa.me/5534997232984?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+/* ============================================================
+   RECOMMENDATIONS
+   ============================================================ */
+const RECOMMENDATIONS = {
+  lanches: { title:'🥤 Que tal uma bebida?', msg:'Combina perfeitamente com um suco natural fresquinho!', icon:'🥤' },
+  frutas:  { title:'🍫 Adicione um docinho!', msg:'Uma fruta combina muito bem com o Brownie Saudável.', icon:'🍫' },
+  sucos:   { title:'🥪 Adicione um lanche!', msg:'O Sanduíche Natural complementa seu pedido perfeitamente.', icon:'🥪' },
+};
+let recTimeout;
+function showRecommendation(product) {
+  const rec = RECOMMENDATIONS[product.category];
+  if (!rec) return;
+  clearTimeout(recTimeout);
+  const iconEl = document.getElementById('rec-icon');
+  const titleEl = document.getElementById('rec-title');
+  const msgEl = document.getElementById('rec-msg');
+  const toastEl = document.getElementById('rec-toast');
+  
+  if(iconEl) iconEl.textContent  = rec.icon;
+  if(titleEl) titleEl.textContent = rec.title;
+  if(msgEl) msgEl.textContent   = rec.msg;
+  if(toastEl) {
+      toastEl.classList.add('show');
+      recTimeout = setTimeout(() => toastEl.classList.remove('show'), 4000);
+  }
+}
+
+/* ============================================================
+   NUTRI DRAWER - ATUALIZADO: Usando tag img
+   ============================================================ */
+function openNutri(id) {
+  const p = PRODUCTS.find(x => x.id === id);
+  const n = p.nutri;
+  const bodyEl = document.getElementById('nutri-body');
+  if(!bodyEl) return;
+  
+  const maxVal = { cal:400, prot:30, carb:50, fibra:10, acucar:30 };
+  bodyEl.innerHTML = `
+    <div class="nutri-header">
+      <!-- Trocado emoji por imagem -->
+      <img src="${p.image}" alt="${p.name}">
+      <div class="nutri-name">${p.name}</div>
+      <div class="nutri-price">R$ ${p.price.toFixed(2).replace('.',',')}</div>
+      <div class="nutri-desc">${p.desc}</div>
+      <div class="nutri-badges">
+        <span class="nutri-badge ${n.lactose ? 'no' : 'ok'}">${n.lactose ? '⚠️ Contém lactose' : '✅ Sem lactose'}</span>
+        <span class="nutri-badge ${n.gluten  ? 'no' : 'ok'}">${n.gluten  ? '⚠️ Contém glúten' : '✅ Sem glúten'}</span>
+        ${n.tracosGluten ? '<span class="nutri-badge no">⚠️ Traços de glúten</span>' : ''}
+        ${n.acucar <= 5 ? '<span class="nutri-badge ok">✅ Sem açúcar refinado</span>' : ''}
+        ${n.fibra  >= 3 ? '<span class="nutri-badge ok">✅ Fonte de fibras</span>'   : ''}
+      </div>
+    </div>
+    <h4 style="font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--gray-400);margin-bottom:16px;">Informações Nutricionais (por porção)</h4>
+    <div class="nutri-macros">
+      ${[
+        { label:'Calorias', val:`${n.cal} kcal`, max:maxVal.cal, pct:n.cal },
+        { label:'Proteínas', val:`${n.prot}g`, max:maxVal.prot, pct:n.prot },
+        { label:'Carboidratos', val:`${n.carb}g`, max:maxVal.carb, pct:n.carb },
+        { label:'Fibras', val:`${n.fibra}g`, max:maxVal.fibra, pct:n.fibra },
+        { label:'Açúcares', val:`${n.acucar}g`, max:maxVal.acucar, pct:n.acucar },
+      ].map(m => `
+        <div class="macro-row">
+          <div class="macro-label">${m.label}</div>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div class="macro-bar"><div class="macro-bar-fill" style="width:${Math.min((m.pct/m.max)*100,100)}%"></div></div>
+            <div class="macro-val">${m.val}</div>
+          </div>
+        </div>`).join('')}
+    </div>
+    <div style="margin-top:24px;">
+      <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="addToCart(${p.id});closeAllDrawers();">
+        + Adicionar ao Carrinho — R$ ${p.price.toFixed(2).replace('.',',')}
+      </button>
+    </div>`;
+  openDrawer('nutri');
+}
+
+/* ============================================================
+   SEMANA SEMANAL - ATUALIZADO: Usando tag img
+   ============================================================ */
+function renderWeekGrid() {
+  const grid = document.getElementById('week-grid');
+  if(!grid) return;
+  grid.innerHTML = weekPlan.map((dayObj, di) => `
+    <div class="day-card">
+      <div class="day-header">${dayObj.day}</div>
+      <div class="day-slots">
+        ${['fruta','lanche','bebida'].map(type => {
+          const item = dayObj[type] ? PRODUCTS.find(p => p.id === dayObj[type]) : null;
+          const icons = { fruta:'🍎', lanche:'🥪', bebida:'🥤' };
+          const labels = { fruta:'Fruta', lanche:'Lanche', bebida:'Bebida' };
+          // Trocado emoji por imagem no slot preenchido
+          const iconContent = item ? `<img src="${item.image}" alt="${item.name}">` : icons[type];
+          
+          return `<div class="day-slot ${item ? 'filled' : ''}" onclick="openWeekPicker(${di},'${type}')">
+            <span class="slot-icon">${iconContent}</span>
+            <span class="slot-name">${item ? item.name.split(' ').slice(0,2).join(' ') : '+ '+labels[type]}</span>
+            ${item ? `<span class="slot-label">R$ ${item.price.toFixed(2).replace('.',',')}</span>` : ''}
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`).join('');
+  updateWeekSummary();
+}
+
+function openWeekPicker(dayIndex, slotType) {
+  weekPickerState = { dayIndex, slotType };
+  const labels = { fruta:'uma Fruta', lanche:'um Lanche', bebida:'uma Bebida' };
+  const cats   = { fruta:'frutas', lanche:'lanches', bebida:'sucos' };
+  const options = PRODUCTS.filter(p => p.category === cats[slotType]);
+  
+  const titleEl = document.getElementById('week-drawer-title');
+  const bodyEl = document.getElementById('weekly-body');
+  if(!titleEl || !bodyEl) return;
+  
+  titleEl.textContent = `${weekPlan[dayIndex].day} — Escolha ${labels[slotType]}`;
+  bodyEl.innerHTML = `
+    <div class="slot-picker-items">
+      <div class="slot-item" onclick="selectWeekItem(null)">
+        <span class="slot-item-icon">❌</span>
+        <span class="slot-item-name">Nenhum</span>
+      </div>
+      ${options.map(p => `
+        <div class="slot-item ${weekPlan[dayIndex][slotType] === p.id ? 'selected' : ''}" onclick="selectWeekItem(${p.id})">
+          <!-- Trocado emoji por imagem no seletor -->
+          <span class="slot-item-icon"><img src="${p.image}" alt="${p.name}"></span>
+          <div>
+            <div class="slot-item-name">${p.name}</div>
+            <div style="font-size:.78rem;color:var(--green-600);font-weight:700;">R$ ${p.price.toFixed(2).replace('.',',')}</div>
+          </div>
+        </div>`).join('')}
+    </div>`;
+  openDrawer('weekly');
+}
+
+function selectWeekItem(productId) {
+  if (!weekPickerState) return;
+  const { dayIndex, slotType } = weekPickerState;
+  weekPlan[dayIndex][slotType] = productId;
+  localStorage.setItem('n4k_week', JSON.stringify(weekPlan));
+  closeAllDrawers();
+  renderWeekGrid();
+}
+
+function updateWeekSummary() {
+  const summaryEl = document.getElementById('week-summary');
+  const contentEl = document.getElementById('week-summary-content');
+  if(!summaryEl || !contentEl) return;
+  
+  const hasAny = weekPlan.some(d => d.fruta || d.lanche || d.bebida);
+  if (!hasAny) { summaryEl.classList.remove('show'); return; }
+  summaryEl.classList.add('show');
+  let total = 0;
+  contentEl.innerHTML = weekPlan.map(d => {
+    const items = [d.fruta, d.lanche, d.bebida].filter(Boolean).map(id => PRODUCTS.find(p => p.id === id));
+    if (!items.length) return '';
+    items.forEach(p => total += p.price);
+    // Mantido emoji aqui apenas como marcador de texto, não imagem do produto
+    const textIcons = { frutas: '🍎', lanches: '🥪', sucos: '🥤' };
+    return `<div style="margin-bottom:16px;"><strong>${d.day}:</strong> ${items.map(p => textIcons[p.category] + ' ' + p.name).join(' · ')}</div>`;
+  }).join('');
+  contentEl.innerHTML += `<div style="border-top:1px solid var(--gray-200);padding-top:12px;font-weight:800;color:var(--green-600);">Total estimado: R$ ${total.toFixed(2).replace('.',',')}</div>`;
+}
+
+function clearWeekPlan() {
+  weekPlan = DAYS.map(d => ({ day:d, fruta:null, lanche:null, bebida:null }));
+  localStorage.setItem('n4k_week', JSON.stringify(weekPlan));
+  renderWeekGrid();
+}
+
+function sendWeekToWhatsApp() {
+  const hasAny = weekPlan.some(d => d.fruta || d.lanche || d.bebida);
+  if (!hasAny) { alert('Monte a semana antes de enviar! Clique nos slots para escolher os itens.'); return; }
+  let msg = 'Olá! Gostaria de fazer o pedido semanal:\n\n';
+  let total = 0;
+  const textIcons = { frutas: '🍎', lanches: '🥪', sucos: '🥤' };
+  
+  weekPlan.forEach(d => {
+    const items = [d.fruta, d.lanche, d.bebida].filter(Boolean).map(id => PRODUCTS.find(p => p.id === id));
+    if (!items.length) return;
+    msg += `*${d.day.toUpperCase()}*\n`;
+    items.forEach(p => { msg += `• ${textIcons[p.category]} ${p.name} - R$ ${p.price.toFixed(2).replace('.',',')}\n`; total += p.price; });
+    msg += '\n';
+  });
+  msg += `*TOTAL ESTIMADO: R$ ${total.toFixed(2).replace('.',',')}*`;
+  window.open(`https://wa.me/5534997232984?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+/* ============================================================
+   SIMULADOR
+   ============================================================ */
+function calcTime(n) {
+  document.querySelectorAll('.sim-option').forEach(el => el.classList.remove('active'));
+  const activeOpt = document.querySelector(`.sim-option[data-v="${n}"]`);
+  if(activeOpt) activeOpt.classList.add('active');
+  
+  const times = { 1: [1,45], 2: [3,30], 3: [5,15] };
+  const [h, m] = times[n];
+  const timeEl = document.getElementById('sim-time');
+  if(timeEl) timeEl.textContent = `${h}h ${m}min`;
+  
+  const extras = {
+    1: ['⚡ Mais tempo para descansar', '❤️ Momentos com seu filho'],
+    2: ['⚡ Tempo de qualidade a mais', '❤️ Menos estresse na semana'],
+    3: ['⚡ Quase meio turno de trabalho!', '❤️ Uma família muito mais tranquila'],
+  };
+  const extrasEl = document.getElementById('sim-extras');
+  if(extrasEl) extrasEl.innerHTML = extras[n].map(e => `<div class="sim-extra">✅ ${e}</div>`).join('');
+  
+  const resultEl = document.getElementById('sim-result');
+  if(resultEl) resultEl.classList.add('show');
+}
+
+/* ============================================================
+   TESTIMONIALS CAROUSEL
+   ============================================================ */
+function renderTestimonials() {
+  const track = document.getElementById('testimonials-track');
+  const dots = document.getElementById('carousel-dots');
+  if(!track || !dots) return;
+  
+  track.innerHTML = TESTIMONIALS.map(t => `
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <div class="testimonial-text">"${t.text}"</div>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">${t.emoji}</div>
+        <div>
+          <div class="testimonial-name">${t.name}</div>
+          <div class="testimonial-role">${t.role}</div>
+        </div>
+      </div>
+    </div>`).join('');
+
+  dots.innerHTML = TESTIMONIALS.map((_, i) => `<div class="carousel-dot ${i===0?'active':''}" onclick="goSlide(${i})"></div>`).join('');
+  setSlide(0);
+}
+
+function setSlide(index) {
+  const track = document.getElementById('testimonials-track');
+  if(!track) return;
+  const cards = track.querySelectorAll('.testimonial-card');
+  if(cards.length === 0) return;
+  
+  const w = cards[0].offsetWidth + 24;
+  const maxIndex = Math.max(0, TESTIMONIALS.length - Math.floor(track.parentElement.offsetWidth / w));
+  slideIndex = Math.max(0, Math.min(index, maxIndex));
+  track.style.transform = `translateX(-${slideIndex * w}px)`;
+  document.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === slideIndex));
+}
+
+function nextSlide() { setSlide(slideIndex + 1); }
+function prevSlide() { setSlide(slideIndex - 1); }
+function goSlide(i) { setSlide(i); }
+
+// auto-play
+setInterval(() => { setSlide(slideIndex + 1 >= TESTIMONIALS.length ? 0 : slideIndex + 1); }, 5000);
+
+/* ============================================================
+   DRAWERS
+   ============================================================ */
+function openDrawer(name) {
+  closeAllDrawers(false);
+  const drawer = document.getElementById(`drawer-${name}`);
+  const overlay = document.getElementById('overlay');
+  if(drawer) drawer.classList.add('open');
+  if(overlay) overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeAllDrawers(restoreScroll = true) {
+  document.querySelectorAll('.drawer').forEach(d => d.classList.remove('open'));
+  const overlay = document.getElementById('overlay');
+  if(overlay) overlay.classList.remove('open');
+  if (restoreScroll) document.body.style.overflow = '';
+}
+
+/* ============================================================
+   MOBILE MENU
+   ============================================================ */
+function toggleMobileMenu() {
+  // simple: scroll to top on mobile
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function scrollTo(id) { 
+    const el = document.getElementById(id);
+    if(el) el.scrollIntoView({ behavior:'smooth' }); 
+}
+
+/* ============================================================
+   MODO DEMO
+   ============================================================ */
+function runDemo() {
+  // clear cart first
+  cart = [];
+  // add demo items
+  [3, 12, 7].forEach(id => { cart.push({ id, qty: id === 3 ? 2 : 1 }); });
+  saveCart();
+  updateCartUI();
+  // set week plan
+  weekPlan[0] = { day:'Segunda', fruta:7, lanche:3, bebida:11 };
+  weekPlan[1] = { day:'Terça',   fruta:8, lanche:4, bebida:13 };
+  localStorage.setItem('n4k_week', JSON.stringify(weekPlan));
+  renderWeekGrid();
+  // open cart
+  setTimeout(() => openDrawer('cart'), 400);
+}
+
+/* ============================================================
+   INIT
+   ============================================================ */
+document.addEventListener('DOMContentLoaded', () => {
+  renderProducts();
+  renderTestimonials();
+  renderWeekGrid();
+  updateCartUI();
+});
+</script>
+</body>
+</html>
